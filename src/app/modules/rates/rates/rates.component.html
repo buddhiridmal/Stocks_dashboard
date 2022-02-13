@@ -1,0 +1,16 @@
+<app-top-nav-bar [title]="'Rates Top Nav Bar'"></app-top-nav-bar>
+<app-breadcrumb [name]="'Rates'"></app-breadcrumb>
+<p>rates works!</p>
+<div class="col-3">
+  <div style="display: block;">
+    <canvas baseChart width="30" height="30"
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [colors]="lineChartColors"
+            chartType="line"
+            [plugins]="lineChartPlugins">
+    </canvas>
+  </div>
+
+</div>
+<pre>{{jsonArray | json}}</pre>
