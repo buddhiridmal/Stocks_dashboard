@@ -1,14 +1,33 @@
 <app-top-nav-bar [title]="'Market Top Nav Bar'"></app-top-nav-bar>
 <app-breadcrumb [name]="'Market'"></app-breadcrumb>
 
-<pre>{{jsonArray | json}}</pre>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-6 col-md-6 ">
+      <table class="table">
+        <thead>
+        <tr class="text-uppercase">
+          <th class="col">Name</th>
+          <th class="col">Last</th>
+          <th class="col">Chg</th>
+          <th class="col">Chg %</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let data of allCoins" >
+          <th scope="row" >{{data.exchange_name}}</th>
+          <th class="fw-normal">{{data.last}}</th>
+          <th class="fw-normal">{{data.change}}</th>
+          <th class="fw-normal"
+              [style.color]="data.localized_last_step_arrow==='up_green'?'green':''">{{data.change_precent}}</th>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-12 col-lg-6 col-md-6 ">
+      <app-news></app-news>
 
-<!--<div class="container-fluid">-->
-<!--  <div class="row">-->
-<!--    <div class="col-6" *ngFor="let data of jsonArray.data.main.stream">-->
-<!--      <div class="col-12" *ngFor="let x of data.content.thumbnail.resolutions ">-->
-<!--        <img [src]="x.url" >-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
+    </div>
+
+  </div>
+</div>
